@@ -133,7 +133,7 @@
 				<div id="duplicater">
 				<img src="https://cdn.watchcharts.com/listings/07ab2af1-47fb-4008-a3a0-4d9b906bc08a.jpg" alt="Watch 1">
 				<h3>Rolex Submariner </h3>
-				<button class="button button2" onclick="duplicate(this)">Buy it for $9,999</button>
+        <button class="button button2" onclick="buyWatch('Rolex Submariner', 9999, 'https://cdn.watchcharts.com/listings/07ab2af1-47fb-4008-a3a0-4d9b906bc08a.jpg')">Buy it for $9,999</button>
 				<p>Reference - 16610</p>
 				<p>Retail Value - $7,375</p>
 				<p>Market Value - $10,070</p>
@@ -143,7 +143,7 @@
 				<div id="duplicater">
 				<img src="https://cdn.watchcharts.com/listings/fbfc487b-63c0-4142-a846-7dc265605058.jpg?d=600x600	" alt="Watch 2">
 				<h3>Omega Speedmaster</h3>
-				<h4><button class="button button2" onclick="duplicate(this)">Buy it for $5,934</button> </h4>
+				<h4><button class="button button2" onclick="buyWatch('Omega Speedmaster', 5934)">Buy it for $5,934</button> </h4>
 				<p>Reference- 310.30.42.50.01.002</p>
 				<p>Retail Value - $7,600</p>
 				<p>Market Value - $6,054</p>
@@ -152,7 +152,7 @@
 			<div class="watch">
 				<img src="https://cdn.watchcharts.com/listings/4e22091c-c316-43d7-8c7f-3a2cf680dc1c.png?d=600x600" alt="Watch 3">
 				<h3>Cartier Santos Large</h3>
-				<h4><button class="button button2">Buy it for $5,995</button> </h4>
+				<h4><button class="button button2" onclick="buyWatch('Cartier Santos Large', 5995)">Buy it for $5,995</button> </h4>
 				<p>Reference - WSSA0018</p>
 				<p>Retail Value - $7,450</p>
 				<p>Market Value - $6,096</p>
@@ -160,7 +160,7 @@
 			<div class="watch">
 				<img src="https://cdn.watchcharts.com/listings/514d8418-1dc7-4984-8c92-f2920bf78560.png?d=600x600" alt="Watch 4">
 				<h3>Tag Huer Formula 1</h3>
-				<h4><button class="button button2">Buy it for $732</button> </h4>
+				<h4><button class="button button2" onclick ="buyWatch('Tag Huer Formula 1', 732)">Buy it for $732</button> </h4>
 				<p>Reference - WAZ1110</p>
 				<p>Retail Value - $1000</p>
 				<p>Market Value - $732</p>
@@ -168,7 +168,7 @@
 			<div class="watch">
 				<img src="https://cdn.watchcharts.com/listings/8789403b-95f2-4e98-902a-fbe7b8131bd5.png?d=600x600" alt="Watch 5">
 				<h3>Grand Seiko Snowflake</h3>
-				<h4><button class="button button2">Buy it for $3,800</button> </h4>
+				<h4><button class="button button2" onclick="buyWatch('Grand Seiko Snowflake', 3800)">Buy it for $3,800</button> </h4>
 				<p>Reference - SBGA211</p>
 				<p>Retail Value - $5,800</p>
 				<p>Market Value - $3,975</p>
@@ -176,22 +176,26 @@
 			<div class="watch">
 				<img src="https://cdn.watchcharts.com/listings/fcbcddb3-55e7-4cdf-8b06-fc9172c92c06.jpg?d=600x600" alt="Watch 6">
 				<h3>Tudor Black Bay Chrono</h3>
-				<h4><button class="button button2">Buy it for $4,050</button> </h4>
+				<h4><button class="button button2" onclick="buyWatch('Tudor Black Bay Chrono', 4050)">Buy it for $4,050</button> </h4>
 				<p>Reference - M79360N-0002</p>
 				<p>Retail Value - ~$5,450</p>			
 				<p>Market Value - $4,660</p>
 			</div>
 		</div>
-		<script>
-			var i = 0;
-			var original = document.getElementById('duplicater');
-
-			function duplicate()
-			{
-			var clone = original.cloneNode(true); 
-    		clone.id = "duplicetor" + ++i; 
-   			original.parentNode.appendChild(clone);
-			}	
-		</script>	
-</body>	
+    <script>
+      function buyWatch(name, price, imageLink) {
+          // Create an object to represent the watch
+          const watch = { name, price, imageLink };
+  
+          // Save the watch data to local storage
+          const portfolio = JSON.parse(localStorage.getItem('portfolio')) || [];
+          portfolio.push(watch);
+          localStorage.setItem('portfolio', JSON.stringify(portfolio));
+  
+          // Inform the user that the watch has been added to the portfolio
+          alert(`You bought ${name} for $${price}. Check your Portfolio for details.`);
+      }
+  </script>
+  
+		</body>	
 </html>
