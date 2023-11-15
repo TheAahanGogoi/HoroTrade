@@ -1,159 +1,157 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>HoroTrade - Portfolio</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="widh=dive-width, intial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
-	<style>
-		body {
-			font-family: 'Ubuntu Mono', monospace;
-			margin: 0;
-			padding: 0;
-			background-color: #000;
-			color: #000;
-			background-color: black;
-			
-		}
-		header {
-			background-color: #FFC200;
-			color: #000;
-			padding: 20px;
-			text-align: center;
-		}
-		header a {
-			color: #000;
-			text-decoration: none;
-			font-size: 2rem;
-			font-weight: bold;
-			transition: all 0.3s ease-in-out;
-		}
-		header a:hover {
-			transform: scale(1.1);
-		}
-		h1 {
-			font-size: 3rem;
-			margin: 0;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoroTrade - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: 'Ubuntu Mono', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #FFF; /* Adjusted text color for better contrast */
         }
-		.button {
-  			border: 2px solid black;
-  			color: #FFC200;
-  			padding: 10px 10px;
-  			text-align: center;
-  			text-decoration: none;
-  			display: inline-block;
-  			font-size: 0.75rem;
-  			margin: 0;
-  			cursor: pointer;
-			font-family: 'Ubuntu Mono', monospace;
-			overflow: hidden;
-			transition: all 0.2s ease-in-out;
-			border-radius:10px;
-		}
-		.button1 {background-color: #000;} 
-		.button:hover{
-			transform: scale(1.1);
-		}
-		.button2 {
-			background-color: #AEC6CF;
-			color:#000;
-		}
-		.button3 {
-			background-color: #FFC200;
-			border-color: #000;
-			color:#000;
-
-		}
-		.container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			padding: 20px;
-			max-width: 1000px;
-			margin: 0 auto;
-		}
-		
-		.watch {
-			margin: 20px;
-			text-align: center;
-			flex-basis: 25%;
-			flex-grow: 1;
-			flex-shrink: 1;
-			border-radius: 10px;
-			background-color: #fff;
-			box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-			overflow: hidden;
-			transition: all 0.3s ease-in-out;
-		}
-		.watch:hover {
-			transform: scale(1.1);
-		}
-		.watch img {
-			width: 100%;
-			height: auto;
-			border-radius: 10px 10px 0 0;
-			object-fit: cover;
-		}
-		.watch h3 {
-			font-size: 1rem;
-			margin: 10px 0;
-			color: #000;
-			font-weight: bold;
-		}
-		.watch h4 {
-			font-size: 1rem; 
-			margin: 10px 0; 
-			color: #000; 
-			font-weight: bold;
-		}
-		.watch p {
-			font-size: 1rem;
-			color : #666;
-			margin: 0;
-			padding: 10px;
-			line-height: 0.75;
-		}
-
-	</style>
+        header {
+            background-color: #FFC200;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+        header a {
+            color: #000;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+        header a:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .button {
+            border: 2px solid black;
+            color: #FFC200;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.75rem;
+            margin: 0;
+            cursor: pointer;
+            font-family: 'Ubuntu Mono', monospace;
+            overflow: hidden;
+            transition: all 0.2s ease-in-out;
+            border-radius: 10px;
+        }
+        .button1 { background-color: #000; }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button2 {
+            background-color: #AEC6CF;
+            color: #000;
+        }
+        .button3 {
+            background-color: #FFC200;
+            border-color: #000;
+            color: #000;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .watch {
+            margin: 20px;
+            text-align: center;
+            flex-basis: 25%;
+            flex-grow: 1;
+            flex-shrink: 1;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .watch:hover {
+            transform: scale(1.1);
+        }
+        .watch img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+            object-fit: cover;
+        }
+        .watch h3 {
+            font-size: 1rem;
+            margin: 10px 0;
+            color: #000;
+            font-weight: bold;
+        }
+        .watch h4 {
+            font-size: 1rem;
+            margin: 10px 0;
+            color: #000;
+            font-weight: bold;
+        }
+        .watch p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+            padding: 10px;
+            line-height: 0.75;
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<h1>HoroTrade</h1>
-		<p>Watch Investment and Trading Simulator</p>
-		<button class="button button1" onclick="window.location.href='GetStarted.html'">Get Started</button>
-		<button class="button button1" onclick="window.location.href='HoroTradeWeb.html'">Marketplace</button>
-		<button class="button button3" onclick="window.location.href='Portfolio.html'">Portfolio</button>
-		
-	</header>
-	<div class="container">
-		<div class="watch">
-			<img src="https://cdn.watchcharts.com/listings/4e22091c-c316-43d7-8c7f-3a2cf680dc1c.png?d=600x600" alt="Watch 3">
-			<h3>Cartier Santos Large</h3>
-			<h4><button class="button button2">Sell it for $5,995</button> </h4>
-			<p>You bought it for $5,995</p>
-			<p>Reference - WSSA0018</p>
-			<p>Retail Value - $7,450</p>
-			<p>Market Value - $6,096</p>
-		</div>
-		<div class="watch">
-			<img src="https://cdn.watchcharts.com/listings/8789403b-95f2-4e98-902a-fbe7b8131bd5.png?d=600x600" alt="Watch 5">
-			<h3>Grand Seiko Snowflake</h3>
-			<h4><button class="button button2">Sell it for $3,975</button> </h4>
-			<p>You bought it for $3,800</p>
-			<p>Reference - SBGA211</p>
-			<p>Retail Value - $5,800</p>
-			<p>Market Value - $3,975</p>
-		</div>
-		<div class="watch">
-			<img src="https://cdn.watchcharts.com/listings/514d8418-1dc7-4984-8c92-f2920bf78560.png?d=600x600" alt="Watch 4">
-			<h3>Tag Huer Formula 1</h3>
-			<h4><button class="button button2">Sell it for $732</button> </h4>	
-			<p>You bought it for $732</p>
-			<p>Reference - WAZ1110</p>
-			<p>Retail Value - $1000</p>
-			<p>Market Value - $732</p>
-		</div>
+    <header>
+        <h1>HoroTrade</h1>
+        <p>Watch Investment and Trading Simulator</p>
+        <button class="button button1" onclick="window.location.href='GetStarted.html'">Get Started</button>
+        <button class="button button1" onclick="window.location.href='HoroTradeWeb.html'">Marketplace</button>
+        <button class="button button3" onclick="window.location.href='Portfolio.html'">Portfolio</button>
+    </header>
+    <div class="container" id="portfolio-container">
+        <!-- Portfolio items will be dynamically added here -->
+    </div>
+    <script>
 
-	</div>
-	</body>
+	const portfolioData = JSON.parse(localStorage.getItem('portfolio')) || [];
+
+
+        function createPortfolioItem(watch) {
+            const container = document.getElementById('portfolio-container');
+            const item = document.createElement('div');
+            item.className = 'watch';
+            item.innerHTML = `
+                <img src="${watch.imageLink}" alt="${watch.name}">
+                <h3>${watch.name}</h3>
+                <h4><button class="button button2" onclick="sellWatch('${watch.name}', ${watch.price}, '${watch.imageLink}')">Sell it for $${watch.price}</button></h4>
+                <p>You bought it for $${watch.price}</p>
+            `;
+            container.appendChild(item);
+        }
+
+        function sellWatch(watchName, sellPrice, imageLink) {
+            const updatedPortfolio = portfolioData.filter(watch => watch.name !== watchName);
+            localStorage.setItem('portfolio', JSON.stringify(updatedPortfolio));
+            const watchContainer = $(`.watch h3:contains('${watchName}')`).closest('.watch');
+            watchContainer.remove();
+            alert(`You sold ${watchName} for $${sellPrice}.`);
+        }
+
+        // Populate the portfolio on page load
+        portfolioData.forEach(createPortfolioItem);
+    </script>
+</body>
 </html>
