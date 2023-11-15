@@ -2,8 +2,9 @@
 <head>
     <title>HoroTrade - Portfolio</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="widh=dive-width, intial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<style>
 		body {
 			font-family: 'Ubuntu Mono', monospace;
@@ -125,35 +126,45 @@
 		<button class="button button3" onclick="window.location.href='Portfolio.html'">Portfolio</button>
 		
 	</header>
-	<div class="container">
-		<div class="watch">
-			<img src="https://cdn.watchcharts.com/listings/4e22091c-c316-43d7-8c7f-3a2cf680dc1c.png?d=600x600" alt="Watch 3">
-			<h3>Cartier Santos Large</h3>
-			<h4><button class="button button2">Sell it for $5,995</button> </h4>
-			<p>You bought it for $5,995</p>
-			<p>Reference - WSSA0018</p>
-			<p>Retail Value - $7,450</p>
-			<p>Market Value - $6,096</p>
-		</div>
-		<div class="watch">
-			<img src="https://cdn.watchcharts.com/listings/8789403b-95f2-4e98-902a-fbe7b8131bd5.png?d=600x600" alt="Watch 5">
-			<h3>Grand Seiko Snowflake</h3>
-			<h4><button class="button button2">Sell it for $3,975</button> </h4>
-			<p>You bought it for $3,800</p>
-			<p>Reference - SBGA211</p>
-			<p>Retail Value - $5,800</p>
-			<p>Market Value - $3,975</p>
-		</div>
-		<div class="watch">
-			<img src="https://cdn.watchcharts.com/listings/514d8418-1dc7-4984-8c92-f2920bf78560.png?d=600x600" alt="Watch 4">
-			<h3>Tag Huer Formula 1</h3>
-			<h4><button class="button button2">Sell it for $732</button> </h4>	
-			<p>You bought it for $732</p>
-			<p>Reference - WAZ1110</p>
-			<p>Retail Value - $1000</p>
-			<p>Market Value - $732</p>
-		</div>
+	<div class="container" id="portfolio-container">
 
 	</div>
-	</body>
+	<script>
+        // Load portfolio data from local storage
+        const portfolioData = JSON.parse(localStorage.getItem('portfolio')) || [];
+
+        // Function to dynamically create portfolio items
+        function createPortfolioItem(watch) {
+            const container = document.getElementById('portfolio-container');
+            const item = document.createElement('div');
+            item.className = 'watch';
+            item.innerHTML = `
+               
+                <h3>${watch.name}</h3>
+                <h4><button class="button button2" onclick="sellWatch('${watch.name}', ${watch.price})">Sell it for $${"Market Price"}</button></h4>
+                <p>You bought it for $${watch.price}</p>
+                <!-- Add other watch details as needed -->
+            `;
+            container.appendChild(item);
+        }
+
+        // Initialize portfolio items
+        portfolioData.forEach(createPortfolioItem);
+
+        // Function to sell a watch
+        function sellWatch(watchName, sellPrice) {
+            // Remove the watch from the portfolio
+            const updatedPortfolio = portfolioData.filter(watch => watch.name !== watchName);
+
+            // Save the updated portfolio to local storage
+            localStorage.setItem('portfolio', JSON.stringify(updatedPortfolio));
+
+            // Remove the watch container from the page
+            const watchContainer = $(`.watch h3:contains('${watchName}')`).closest('.watch');
+			alert(`The watch '${watchName}' has been sold for Market Price`);
+            watchContainer.remove();
+			
+        }
+    </script>
+</body>
 </html>
